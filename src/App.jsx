@@ -1,5 +1,5 @@
 import './App.css'
-import {useState} from "react";
+import { useState } from "react";
 
 function App() {
     const [quote, setQuote] = useState('')
@@ -7,7 +7,7 @@ function App() {
     const fetchQuote = async () => {
         setIsLoading(true);
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_SERVER}/quote`);
+            const response = await fetch(`${import.meta.env.VITE_API_SERVER || "http://sample-webapp-nodejs:3000"}/quote`);
             setQuote(response);
         } catch (error) {
             console.error('Error fetching data:', error);
