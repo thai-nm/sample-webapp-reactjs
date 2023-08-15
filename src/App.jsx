@@ -8,7 +8,8 @@ function App() {
         setIsLoading(true);
         try {
             const response = await fetch(`${import.meta.env.VITE_API_SERVER || "http://sample-webapp-nodejs:3000"}/quote`);
-            setQuote(response);
+            const data = await response.text();
+            setQuote(data);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
